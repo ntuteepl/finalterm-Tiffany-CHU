@@ -16,9 +16,9 @@ public:
     int maxHP;
     int gold;  
 
-    // ªì©l¤Æ¨¤¦â
+    // åˆå§‹åŒ–è§’è‰²
     Character(string name) 
-	{
+    {  
         this->name = name;
         this->strength = 5;
         this->defense = 2;
@@ -30,81 +30,81 @@ public:
     }
 
 
-    // §ğÀ»©Çª« 
+    // æ”»æ“Šæ€ªç‰© 
     int attack() 
-	{
+    {
         int damage = strength;
-        cout << name << " §ğÀ»¤F©Çª«¡A³y¦¨ " << damage << " ÂI¶Ë®`¡I" << endl;
+        cout << name << " æ”»æ“Šäº†æ€ªç‰©ï¼Œé€ æˆ " << damage << " é»å‚·å®³ï¼" << endl;
         return damage;
     }
 
-    // ªvÀø¦Û¤v
+    // æ²»ç™‚è‡ªå·±
     void heal() 
-	{
+    {
         if (mp >= 20) 
-		{
+	{
             mp -= 20;
-            int healAmount = 20;  // ¨C¦¸ªvÀø«ì´_20 HP
+            int healAmount = 20;  // æ¯æ¬¡æ²»ç™‚æ¢å¾©20 HP
             hp += healAmount;
-            if (hp > maxHP) hp = maxHP;  // ½T«O¤£¶W¹L³Ì¤jHP
-            cout << name << " ¨Ï¥ÎªvÀø§Ş¯à¡A«ì´_¤F " << healAmount << " ÂI¥Í©R­È¡I" << endl;
+            if (hp > maxHP) hp = maxHP;  // ç¢ºä¿ä¸è¶…éæœ€å¤§HP
+            cout << name << " ä½¿ç”¨æ²»ç™‚æŠ€èƒ½ï¼Œæ¢å¾©äº† " << healAmount << " é»ç”Ÿå‘½å€¼ï¼" << endl;
         } else 
-            cout << name << " ªº MP ¤£¨¬¡AµLªk¨Ï¥ÎªvÀø§Ş¯à¡I" << endl;
+            cout << name << " çš„ MP ä¸è¶³ï¼Œç„¡æ³•ä½¿ç”¨æ²»ç™‚æŠ€èƒ½ï¼" << endl;
     }
 
-// °Ó©±ÁÊ¶Rª««~
+// å•†åº—è³¼è²·ç‰©å“
     bool shop() 
-	{
+    {
         int choice;
-        cout << "\n°Ó©±: ¥Ø«eª÷¹ô: " << gold << " ª÷¹ô\n";
-        cout << "1. ÁÊ¶RªZ¾¹ (+5 ¤O¶q) »İ 100 ª÷¹ô\n";
-        cout << "2. ÁÊ¶R²¯¥Ò (+5 ¨¾¿m) »İ 100 ª÷¹ô\n";
-        cout << "3. °h¥X°Ó©±\n";
-        cout << "½Ğ¿ï¾Ü: ";
+        cout << "\nå•†åº—: ç›®å‰é‡‘å¹£: " << gold << " é‡‘å¹£\n";
+        cout << "1. è³¼è²·æ­¦å™¨ (+5 åŠ›é‡) éœ€ 100 é‡‘å¹£\n";
+        cout << "2. è³¼è²·ç›”ç”² (+5 é˜²ç¦¦) éœ€ 100 é‡‘å¹£\n";
+        cout << "3. é€€å‡ºå•†åº—\n";
+        cout << "è«‹é¸æ“‡: ";
         cin >> choice;
 
         if (choice == 1) 
-		{
+	{
             if (gold >= 100) 
-			{
+	    {
                 gold -= 100;
                 strength += 5;
-                cout << name << " ÁÊ¶R¤FªZ¾¹¡A¤O¶q¼W¥[ 5¡I\n";
-                return true;  // ÁÊ¶Rª««~¡Aµ²§ô¦^¦X
+                cout << name << " è³¼è²·äº†æ­¦å™¨ï¼ŒåŠ›é‡å¢åŠ  5ï¼\n";
+                return true;  // è³¼è²·ç‰©å“ï¼ŒçµæŸå›åˆ
             } else 
-                cout << "ª÷¹ô¤£¨¬¡AµLªkÁÊ¶RªZ¾¹¡I\n";
+                cout << "é‡‘å¹£ä¸è¶³ï¼Œç„¡æ³•è³¼è²·æ­¦å™¨ï¼\n";
         } else if (choice == 2) 
-		{
+        {
             if (gold >= 100) 
-			{
+	    {
                 gold -= 100;
                 defense += 5;
-                cout << name << " ÁÊ¶R¤F²¯¥Ò¡A¨¾¿m¼W¥[ 5¡I\n";
-                return true;  // ÁÊ¶Rª««~¡Aµ²§ô¦^¦X
+                cout << name << " è³¼è²·äº†ç›”ç”²ï¼Œé˜²ç¦¦å¢åŠ  5ï¼\n";
+                return true;  // è³¼è²·ç‰©å“ï¼ŒçµæŸå›åˆ
             } else 
-                cout << "ª÷¹ô¤£¨¬¡AµLªkÁÊ¶R²¯¥Ò¡I\n";
+                cout << "é‡‘å¹£ä¸è¶³ï¼Œç„¡æ³•è³¼è²·ç›”ç”²ï¼\n";
         } else if (choice == 3) 
-            cout << "Â÷¶}°Ó©±\n";
+            cout << "é›¢é–‹å•†åº—\n";
         else 
-            cout << "µL®Ä¿ï¾Ü¡I\n";
-        return false;  // ¥¼ÁÊ¶Rª««~¡AÄ~Äò¾Ş§@
+            cout << "ç„¡æ•ˆé¸æ“‡ï¼\n";
+        return false;  // æœªè³¼è²·ç‰©å“ï¼Œç¹¼çºŒæ“ä½œ
     }
 
 
-    // ¿é¥X¨¤¦âª¬ºA
+    // è¼¸å‡ºè§’è‰²ç‹€æ…‹
     void printStatus() 
-	{
-        cout << "¨¤¦â: " << name 
+    {
+        cout << "è§’è‰²: " << name 
              << ", HP: " << hp << "/" << maxHP 
              << ", MP: " << mp << "/" << maxMP 
-             << ", ¤O¶q: " << strength 
-             << ", ¨¾¿m¤O: " << defense 
-             << ", ª÷¹ô: " << gold << endl;
+             << ", åŠ›é‡: " << strength 
+             << ", é˜²ç¦¦åŠ›: " << defense 
+             << ", é‡‘å¹£: " << gold << endl;
     }
 
-    // ¬O§_¦s¬¡
+    // æ˜¯å¦å­˜æ´»
     bool isAlive() 
-	{
+    {
         return hp > 0;
     }
 };
@@ -120,7 +120,7 @@ public:
     int goldDrop;
 
     Enemy(string name, int hp, int attackPower, int defense, int goldDrop) 
-	{
+    {
         this->name = name;
         this->hp = hp;
         this->maxHP = hp;
@@ -129,18 +129,18 @@ public:
         this->goldDrop = goldDrop;
     }
 
-    // §ğÀ»©Çª« 
+    // æ”»æ“Šæ€ªç‰© 
     int attack(Character& player) 
-	{
+    {
         int damage = attackPower - player.defense;
-        if (damage < 0) damage = 0; // ½T«O¶Ë®`¤£·|¬O­t¼Æ
-        cout << name << " §ğÀ»¤F " << player.name << "¡A³y¦¨ " << damage << " ÂI¶Ë®`¡I" << endl;
+        if (damage < 0) damage = 0; // ç¢ºä¿å‚·å®³ä¸æœƒæ˜¯è² æ•¸
+        cout << name << " æ”»æ“Šäº† " << player.name << "ï¼Œé€ æˆ " << damage << " é»å‚·å®³ï¼" << endl;
         return damage;
     }
 
-    // ¬O§_¦s¬¡
+    // æ˜¯å¦å­˜æ´»
     bool isAlive() 
-	{
+    {
         return hp > 0;
     }
 };
@@ -149,33 +149,33 @@ int main()
 {
     string name1, name2;
 
-    // ¿é¤J¨¤¦â©m¦W
-    cout << "ª±®a1¡A½Ğ¿é¤J¨¤¦â©m¦W: ";
+    // è¼¸å…¥è§’è‰²å§“å
+    cout << "ç©å®¶1ï¼Œè«‹è¼¸å…¥è§’è‰²å§“å: ";
     cin >> name1;
-    cout << "ª±®a2¡A½Ğ¿é¤J¨¤¦â©m¦W: ";
+    cout << "ç©å®¶2ï¼Œè«‹è¼¸å…¥è§’è‰²å§“å: ";
     cin >> name2;
 
-    // ª±®a1¿ï¾ÜÂ¾·~
+    // ç©å®¶1é¸æ“‡è·æ¥­
     int choice1;
-    cout << "ª±®a1¡A¿ï¾Ü§AªºÂ¾·~:\n1. ¾Ô¤h (Warrior)\n2. Å]ªk®v (Mage)\n3. ®g¤â (Archer)\n¿ï¾Ü (1¡B2 ©Î 3): ";
+    cout << "ç©å®¶1ï¼Œé¸æ“‡ä½ çš„è·æ¥­:\n1. æˆ°å£« (Warrior)\n2. é­”æ³•å¸« (Mage)\n3. å°„æ‰‹ (Archer)\né¸æ“‡ (1ã€2 æˆ– 3): ";
     cin >> choice1;
     Character* player1;
     if (choice1 == 1) 
-	{
+    {
         player1 = new Character(name1);  
         player1->strength = 6;
         player1->defense = 8;
         player1->mp = 0;
         player1->maxMP = 50;
     } else if (choice1 == 2) 
-	{
+    {
         player1 = new Character(name1);
         player1->strength = 8;
         player1->defense = 6;
         player1->mp = 0;
         player1->maxMP = 50;
     } else if (choice1 == 3) 
-	{
+    {
         player1 = new Character(name1);
         player1->strength = 10;
         player1->defense = 3;
@@ -183,27 +183,27 @@ int main()
         player1->maxMP = 50;
     }
 
-    // ª±®a2¿ï¾ÜÂ¾·~
+    // ç©å®¶2é¸æ“‡è·æ¥­
     int choice2;
-    cout << "ª±®a2¡A¿ï¾Ü§AªºÂ¾·~:\n1. ¾Ô¤h (Warrior)\n2. Å]ªk®v (Mage)\n3. ®g¤â (Archer)\n¿ï¾Ü (1¡B2 ©Î 3): ";
+    cout << "ç©å®¶2ï¼Œé¸æ“‡ä½ çš„è·æ¥­:\n1. æˆ°å£« (Warrior)\n2. é­”æ³•å¸« (Mage)\n3. å°„æ‰‹ (Archer)\né¸æ“‡ (1ã€2 æˆ– 3): ";
     cin >> choice2;
     Character* player2;
     if (choice2 == 1) 
-	{
+    {
         player2 = new Character(name2);  
         player2->strength = 6;
         player2->defense = 8;
         player2->mp = 0;
         player2->maxMP = 50;
     } else if (choice2 == 2) 
-	{
+    {
         player2 = new Character(name2);
         player2->strength = 8;
         player2->defense = 6;
         player2->mp = 0;
         player2->maxMP = 50;
     } else if (choice2 == 3) 
-	{
+    {
         player2 = new Character(name2);
         player2->strength = 10;
         player2->defense = 3;
@@ -211,98 +211,97 @@ int main()
         player2->maxMP = 50;
     }
 
-    // ³Ğ«Ø©Çª«
-    Enemy enemy("©Çª«", 200, 15, 5, 50);  
+    // å‰µå»ºæ€ªç‰©
+    Enemy enemy("æ€ªç‰©", 200, 15, 5, 50);  
 
-    // ¹CÀ¸¶}©l
-    cout << "¹CÀ¸¶}©l¡I\n";
+    // éŠæˆ²é–‹å§‹
+    cout << "éŠæˆ²é–‹å§‹ï¼\n";
 
-    // ¶i¦æ¦^¦X¨î¾Ô°«
+    // é€²è¡Œå›åˆåˆ¶æˆ°é¬¥
     while (player1->isAlive() && player2->isAlive() && enemy.isAlive()) 
-	{
-        // Åã¥Üª±®a©M©Çª«ªºª¬ºA
+    {
+        // é¡¯ç¤ºç©å®¶å’Œæ€ªç‰©çš„ç‹€æ…‹
         player1->printStatus();
         player2->printStatus();
-        cout << "©Çª«ªºª¬ºA: HP: " << enemy.hp << "/" << enemy.maxHP << endl;
+        cout << "æ€ªç‰©çš„ç‹€æ…‹: HP: " << enemy.hp << "/" << enemy.maxHP << endl;
 
-        // ª±®a1¿ï¾Ü¦æ°Ê
+        // ç©å®¶1é¸æ“‡è¡Œå‹•
         int choice;
-        bool endTurn = false;  // ºX¼Ğ¡Aªí¥Ü¬O§_µ²§ô¦^¦X
+        bool endTurn = false;  // æ——æ¨™ï¼Œè¡¨ç¤ºæ˜¯å¦çµæŸå›åˆ
         while (!endTurn) 
-		{
-        	cout << "\nª±®a1ªº¦^¦X¡G\n1. §ğÀ»©Çª«\n2. ªvÀø¦Û¤v\n3. ¶i¤J°Ó©±\n¿ï¾Ü (1¡B2 ©Î 3): ";
+	{
+        	cout << "\nç©å®¶1çš„å›åˆï¼š\n1. æ”»æ“Šæ€ªç‰©\n2. æ²»ç™‚è‡ªå·±\n3. é€²å…¥å•†åº—\né¸æ“‡ (1ã€2 æˆ– 3): ";
         	cin >> choice;
         	if (choice == 1) 
-			{
+		{
             	int damage = player1->attack();
             	enemy.hp -= damage;
-            	endTurn = true;  // §ğÀ»«áµ²§ô¦^¦X
+            	endTurn = true;  // æ”»æ“Šå¾ŒçµæŸå›åˆ
         	} else if (choice == 2) 
             	player1->heal();  
         	else if (choice == 3) 
-			{
-            	if(player1->shop()) 
-				{
-                    endTurn = true;  // ¦pªGÁÊ¶R¤Fª««~¡Aµ²§ô¦^¦X
-                };
-        	}
-		}
-        // ª±®a2¿ï¾Ü¦æ°Ê
-        endTurn = false;  // ­«¸mºX¼Ğ
-        while (!endTurn) 
 		{
-			cout << "\nª±®a2ªº¦^¦X¡G\n1. §ğÀ»©Çª«\n2. ªvÀø¦Û¤v\n3. ¶i¤J°Ó©±\n¿ï¾Ü (1¡B2 ©Î 3): ";
+            		if(player1->shop()) 
+			{
+                   		endTurn = true;  // å¦‚æœè³¼è²·äº†ç‰©å“ï¼ŒçµæŸå›åˆ
+                	};
+        	}
+	}
+        // ç©å®¶2é¸æ“‡è¡Œå‹•
+        endTurn = false;  // é‡ç½®æ——æ¨™
+        while (!endTurn) 
+	{
+		cout << "\nç©å®¶2çš„å›åˆï¼š\n1. æ”»æ“Šæ€ªç‰©\n2. æ²»ç™‚è‡ªå·±\n3. é€²å…¥å•†åº—\né¸æ“‡ (1ã€2 æˆ– 3): ";
         	cin >> choice;
         	if (choice == 1) 
-			{
-            	int damage = player2->attack();
-            	enemy.hp -= damage;
-            	endTurn = true;  // §ğÀ»«áµ²§ô¦^¦X
+		{
+            		int damage = player2->attack();
+            		enemy.hp -= damage;
+            		endTurn = true;  // æ”»æ“Šå¾ŒçµæŸå›åˆ
         	} else if (choice == 2) 
-			{
-            	player2->heal();
+		{
+            		player2->heal();
         	} else if (choice == 3) 
+		{
+            		if(player2->shop());
 			{
-            	if(player2->shop());
-				{
-                    endTurn = true;  // ¦pªGÁÊ¶R¤Fª««~¡Aµ²§ô¦^¦X
-                };
+                    		endTurn = true;  // å¦‚æœè³¼è²·äº†ç‰©å“ï¼ŒçµæŸå›åˆ
+                	};
         	}
 		
-		}
-        // ¦pªG©Çª«¤´µM¦s¬¡¡A©Çª«¶i¦æ§ğÀ»
+	}
+        // å¦‚æœæ€ªç‰©ä»ç„¶å­˜æ´»ï¼Œæ€ªç‰©é€²è¡Œæ”»æ“Š
         if (enemy.isAlive()) 
-		{
+	{
             int damage1 = enemy.attack(*player1);
             player1->hp -= damage1;
             int damage2 = enemy.attack(*player2);
             player2->hp -= damage2;
         }
 
-		// ¨C¦^¦Xµ²§ô®É¼W¥[ª÷¹ô
+	// æ¯å›åˆçµæŸæ™‚å¢åŠ é‡‘å¹£
         player1->gold += 20;
         player2->gold += 20;
-        // ¨C¦^¦Xµ²§ô®É¼W¥[mp
-		player1->mp += 5;
+        // æ¯å›åˆçµæŸæ™‚å¢åŠ mp
+	player1->mp += 5;
         player2->mp += 5;
-		// Åã¥Ü¦^¦Xµ²§ôª¬ºA
-        cout << "\n¦^¦Xµ²§ô¡I\n";
+	// é¡¯ç¤ºå›åˆçµæŸç‹€æ…‹
+        cout << "\nå›åˆçµæŸï¼\n";
 
-
-        // ¦pªGª±®a¦º¤F¡Aµ²§ô¹CÀ¸
+        // å¦‚æœç©å®¶æ­»äº†ï¼ŒçµæŸéŠæˆ²
         if (!player1->isAlive()) 
-		{
-            cout << "ª±®a1 ³QÀ»±Ñ¡I¹CÀ¸µ²§ô¡I\n";
+	{
+            cout << "ç©å®¶1 è¢«æ“Šæ•—ï¼éŠæˆ²çµæŸï¼\n";
             break;
         }
         if (!player2->isAlive()) 
-		{
-            cout << "ª±®a2 ³QÀ»±Ñ¡I¹CÀ¸µ²§ô¡I\n";
+	{
+            cout << "ç©å®¶2 è¢«æ“Šæ•—ï¼éŠæˆ²çµæŸï¼\n";
             break;
         }
     }
 
-    // ÄÀ©ñ°O¾ĞÅé
+    // é‡‹æ”¾è¨˜æ†¶é«”
     delete player1;
     delete player2;
 
