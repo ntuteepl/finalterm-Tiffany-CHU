@@ -234,17 +234,19 @@ int main()
         	cin >> choice;
         	if (choice == 1) 
 		{
-            	int damage = player1->attack();
-            	enemy.hp -= damage;
-            	endTurn = true;  // 攻擊後結束回合
+            		int damage = player1->attack();
+            		enemy.hp -= damage;
+            		endTurn = true;  // 攻擊後結束回合
         	} else if (choice == 2) 
-            	player1->heal();  
-        	else if (choice == 3) 
+            	{
+        		player1->heal();
+        		endTurn = true;  // 治療後結束回合
+    		} else if (choice == 3) 
 		{
             		if(player1->shop()) 
 			{
                    		endTurn = true;  // 如果購買了物品，結束回合
-                	};
+                	}
         	}
 	}
         // 玩家2選擇行動
@@ -261,12 +263,13 @@ int main()
         	} else if (choice == 2) 
 		{
             		player2->heal();
-        	} else if (choice == 3) 
+			endTurn = true;  // 治療後結束回合
+		}else if (choice == 3) 
 		{
             		if(player2->shop())
 			{
                     		endTurn = true;  // 如果購買了物品，結束回合
-                	};
+                	}
         	}
 		
 	}
