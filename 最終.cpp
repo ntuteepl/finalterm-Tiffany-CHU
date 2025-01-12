@@ -263,7 +263,7 @@ int main()
             		player2->heal();
         	} else if (choice == 3) 
 		{
-            		if(player2->shop());
+            		if(player2->shop())
 			{
                     		endTurn = true;  // 如果購買了物品，結束回合
                 	};
