@@ -234,10 +234,15 @@ int main()
         	cin >> choice;
         	if (choice == 1) 
 		{
-            		int damage = player1->attack();
-            		enemy.hp -= damage;
-            		endTurn = true;  // 攻擊後結束回合
-        	} else if (choice == 2) 
+                	int damage = player1->attack();
+               		enemy.hp -= damage;
+                	if (enemy.hp <= 0) 
+                	{
+                    		cout << "恭喜玩家1擊敗怪物！" << endl;
+                    	return 0;  // 結束遊戲
+                	}
+                	endTurn = true;
+            	} else if (choice == 2) 
             	{
         		player1->heal();
         		endTurn = true;  // 治療後結束回合
@@ -257,11 +262,16 @@ int main()
         	cin >> choice;
         	if (choice == 1) 
 		{
-            		int damage = player2->attack();
-            		enemy.hp -= damage;
-            		endTurn = true;  // 攻擊後結束回合
-        	} else if (choice == 2) 
-		{
+                	int damage = player2->attack();
+                	enemy.hp -= damage;
+                	if (enemy.hp <= 0) 
+                	{
+	                        cout << "恭喜玩家2擊敗怪物！" << endl;
+                    		return 0;  // 結束遊戲
+                	}
+                	endTurn = true;
+                } else if (choice == 2) 
+	        {
             		player2->heal();
 			endTurn = true;  // 治療後結束回合
 		}else if (choice == 3) 
